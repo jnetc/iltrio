@@ -1,0 +1,1252 @@
+@charset "utf-8";
+/*---------
+animation - '-ms-' IE10+ не требуется.
+transition - '-ms-' IE10+ не требуется.
+transform - все приставки.
+border-box - '-ms-', '-o-' IE8+, Opera 9.5+ не требуется.
+@-webkit-keyframes, @keyframes - оба параметра для мультибраузерности.
+---------*/
+/*-----
+IE 10 & 11+ исправление ошибки при прокручивании ползунка,
+дергается картинка на фоне. Параметр "background-attachment: fixed;"
+ -----*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  html {
+    overflow: hidden;
+    height: 100%;
+  }
+  body {
+    overflow: auto;
+    height: 100%;
+  }
+}
+/*----- MENU & VINE -----*/
+html,
+body {
+  height: 100%;
+}
+a {
+  color: #000000;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+  color: #7c7323;
+}
+body,
+h1,
+h2,
+p,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style-type: none;
+  width: 100%;
+  height: 100%;
+}
+
+h1,
+pre {
+  font-family: 'AnticDidone_Regular';
+  text-align: center;
+  font-weight: 300;
+}
+h2 {
+  font-family: 'AlegreyaSans_Light';
+  color: #ff1d25;
+  text-align: center;
+}
+p {
+  font-family: 'AlegreyaSans_Light';
+}
+/*----- IL TRIO picture -----*/
+.one-box,
+.two-box,
+.four-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.one-box,
+.four-box {
+  overflow: hidden;
+}
+.one-box {
+  background-image: url(../image/box-one-bg.jpg);
+}
+.two-box {
+  background-image: url(../image/box-two-bg.jpg);
+}
+.four-box {
+  background-image: url(../image/box-four-bg.jpg);
+}
+.logo {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-image: url(../image/logo.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+/*----- AUKIOLOAJAT -----*/
+.topic-white {
+  color: #ffffff;
+  width: 100%;
+}
+.ajat-box {
+  color: #eaeaea;
+}
+.aika-list {
+  height: 350px;
+  width: 70%;
+  padding-top: 45px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.aika-line {
+  border-bottom: 1px dashed #b3b3b3;
+  margin-top: 5px;
+}
+.day {
+  text-align: left;
+  font-size: 25px;
+}
+.clock {
+  color: #ffffff;
+  float: right;
+}
+.varaus-txt {
+  font-size: 27px;
+}
+.varaus-btn {
+  height: 60px;
+  width: 250px;
+  margin: 42px auto 60px auto;
+  position: relative;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out 0.3s;
+  -webkit-transition: all 0.2s ease-in-out 0.3s;
+  -moz-transition: all 0.2s ease-in-out 0.3s;
+  -o-transition: all 0.2s ease-in-out 0.3s;
+  z-index: 1;
+}
+.varaus-btn::after {
+  content: '';
+  width: 60px;
+  height: 61px;
+  left: -1px;
+  top: -1px;
+  display: block;
+  position: absolute;
+  border-radius: 50px;
+  background-color: #ffffff;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  z-index: 0;
+}
+.varaus-btn:hover::after {
+  width: 252px;
+}
+.varaus-btn:hover > a > .varaus-name {
+  animation: 0.5s phoneover;
+  -webkit-animation: 0.5s phoneover;
+  -moz-animation: 0.5s phoneover;
+  -o-animation: 0.5s phoneover;
+  animation-fill-mode: forwards;
+  color: #000000;
+}
+.varaus-btn:hover .varaus-sing {
+  transform: rotate(0deg);
+}
+.varaus-sing {
+  width: 60px;
+  height: 60px;
+  margin-top: -1px;
+  float: left;
+  margin-left: -1px;
+  position: relative;
+  border-radius: 50px;
+  background-position: -240px 0px;
+  background-image: url(../image/icons.png);
+  transition: 0.3s;
+  -o-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transform: rotate(85deg);
+  -webkit-transform: rotate(85deg);
+  -moz-transform: rotate(85deg);
+  -ms-transform: rotate(85deg);
+  -o-transform: rotate(85deg);
+  z-index: 1;
+}
+.varaus-name {
+  left: -5px;
+  top: 15px;
+  position: relative;
+  overflow-y: hidden;
+  color: #ffffff;
+  font-size: 24px;
+  font-family: 'AlegreyaSans_Light';
+  font-weight: 300;
+  text-align: center;
+  animation: 0.3s phoneout;
+  -webkit-animation: 0.3s phoneout;
+  -moz-animation: 0.3s phoneout;
+  -o-animation: 0.3s phoneout;
+  animation-fill-mode: forwards;
+  z-index: 3;
+}
+@-webkit-keyframes phoneover {
+  0% {
+    right: 0px;
+    opacity: 1;
+    color: #ffffff;
+  }
+  50% {
+    right: -15px;
+    opacity: 0;
+    color: #ffffff;
+  }
+  51% {
+    left: -25px;
+    opacity: 0;
+    color: #000000;
+  }
+  100% {
+    left: 0px;
+    opacity: 1;
+    color: #000000;
+  }
+}
+@-webkit-keyframes phoneout {
+  0% {
+    left: 0px;
+    opacity: 1;
+    color: #000000;
+  }
+  50% {
+    left: -25px;
+    opacity: 0;
+    color: #000000;
+  }
+  51% {
+    right: -15px;
+    opacity: 0;
+    color: #ffffff;
+  }
+  100% {
+    right: 0px;
+    opacity: 1;
+    color: #ffffff;
+  }
+}
+@keyframes phoneover {
+  0% {
+    right: 0px;
+    opacity: 1;
+    color: #ffffff;
+  }
+  50% {
+    right: -15px;
+    opacity: 0;
+    color: #ffffff;
+  }
+  51% {
+    left: -25px;
+    opacity: 0;
+    color: #000000;
+  }
+  100% {
+    left: 0px;
+    opacity: 1;
+    color: #000000;
+  }
+}
+@keyframes phoneout {
+  0% {
+    left: 0px;
+    opacity: 1;
+    color: #000000;
+  }
+  50% {
+    left: -25px;
+    opacity: 0;
+    color: #000000;
+  }
+  51% {
+    right: -15px;
+    opacity: 0;
+    color: #ffffff;
+  }
+  100% {
+    right: 0px;
+    opacity: 1;
+    color: #ffffff;
+  }
+}
+/*----- LOUNAS - YHTEYSTIEDOT БОКС -----*/
+.tree-box,
+.seven-box,
+.footer {
+  background-color: #eaeaea;
+  float: left;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.topic-olive,
+.topic-yhteys {
+  color: #535332;
+}
+/*------ LOUNAS ------*/
+.week-box {
+  border: 2px solid #535332;
+  width: 270px;
+  margin: 0px auto;
+}
+.lounas-day {
+  font-weight: bolder;
+}
+#calendar {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  background-color: #535332;
+  border: 5px solid #eaeaea;
+  border-radius: 100px;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: -75px;
+}
+#calendar > h1 {
+  color: #eaeaea;
+}
+#calendar-date {
+  font-size: 70px;
+  margin-top: 15px;
+}
+#calendar-month {
+  font-size: 20px;
+  margin-top: -5px;
+}
+.lounas-list {
+  font-family: 'Sansation_Light';
+  width: 100%;
+  padding-top: 90px;
+  background-color: #514f17;
+}
+.lounas-list li {
+  margin-bottom: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-bottom: thin solid #eaeaea;
+}
+.paste-lounas {
+  overflow: hidden;
+  white-space: pre-wrap;
+  font-size: 15pt;
+  color: #eaeaea;
+  width: 100%;
+  text-align: center;
+  vertical-align: baseline;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.lounas-list > h1 {
+  position: relative;
+  top: -10px;
+  color: #ffffff;
+  font-size: 20px;
+}
+.lounas-title,
+.lounas-hinta,
+.lounas-product {
+  color: #eaeaea;
+  position: relative;
+}
+.lounas-title {
+  width: 80%;
+  float: left;
+  font-size: 20px;
+  text-align: left;
+}
+.lounas-hinta {
+  float: right;
+  font-size: 20px;
+  text-align: right;
+}
+.lounas-product {
+  width: 75%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.shadow-box {
+  width: 100%;
+  height: 50px;
+  float: left;
+  position: relative;
+  opacity: 0.45;
+  background-repeat: no-repeat;
+  background-image: url(../image/ten.png);
+}
+/*------ Ромбические картинки ------*/
+.diamond1,
+.diamond2,
+.diamond3 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border: 10px solid #eaeaea;
+  transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  z-index: 999;
+}
+.diamond1 {
+  margin-top: 70px;
+  margin-bottom: -60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.diamond2,
+.diamond3 {
+  margin-top: -60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.diamond1::before,
+.diamond2::before,
+.diamond3::before {
+  content: '';
+  width: 200px;
+  height: 200px;
+  margin-top: -50px;
+  margin-left: -50px;
+  display: block;
+  transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  background-size: cover;
+}
+.diamond1::before {
+  background-image: url(../image/01_ilaty.jpg);
+}
+.diamond2::before {
+  background-image: url(../image/02_menu.jpg);
+}
+.diamond3::before {
+  background-image: url(../image/03_vine.jpg);
+}
+/*----- SLIDER BLOCK-----*/
+.slider-box {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+/*----- MENU & VINE -----*/
+.five-box,
+.six-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  float: left;
+  z-index: 1;
+}
+.five-box {
+  background-color: #eaeaea;
+}
+.six-box {
+  background-color: #2d1305;
+}
+.menu-list,
+.vine-list {
+  height: 100%;
+  margin-top: 20px;
+  position: relative;
+  text-align: center;
+}
+.menu-block,
+.vine-block {
+  margin-top: 0px;
+}
+/*------ input элемента кнопки ------*/
+.menu-select,
+.vine-select {
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+/*------ видимая часть кнопок ------*/
+.menu-name,
+.vine-name {
+  display: block;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  z-index: 1;
+}
+.menu-name {
+  color: #535332;
+  border: 2px solid #535332;
+}
+.vine-name {
+  color: #eaeaea;
+  border: 2px solid #eaeaea;
+}
+.menu-name::after,
+.vine-name::after {
+  content: '';
+  display: block;
+  position: relative;
+  top: -555px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  animation: 0.5s mouseout;
+  -webkit-animation: 0.5s mouseout;
+  -moz-animation: 0.5s mouseout;
+  -o-animation: 0.5s mouseout;
+  transition: 0.2s;
+  -o-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  z-index: -1;
+}
+.menu-name::after {
+  background-color: #535332;
+}
+.vine-name::after {
+  background-color: #eaeaea;
+}
+/*------ активная часть кнопки ------*/
+.menu-select:hover ~ .menu-name {
+  color: #eaeaea;
+}
+.vine-select:hover ~ .vine-name {
+  color: #2d1305;
+}
+.menu-select:hover ~ .menu-name::after,
+.vine-select:hover ~ .vine-name::after {
+  animation: 0.5s mouseover;
+  -webkit-animation: 0.5s mouseover;
+  -moz-animation: 0.5s mouseover;
+  -o-animation: 0.5s mouseover;
+  animation-fill-mode: forwards;
+}
+.menu-select:checked ~ .menu-name {
+  color: #eaeaea;
+  background-color: #535332;
+  border: 2px solid #535332;
+  z-index: -1;
+}
+.vine-select:checked ~ .vine-name {
+  color: #2d1305;
+  background-color: #eaeaea;
+  border: 2px solid #eaeaea;
+  z-index: -1;
+}
+.menu-select:checked ~ .menu-mask::after,
+.vine-select:checked ~ .vine-mask::after {
+  visibility: hidden;
+}
+.menu-select:checked ~ .menu-line,
+.vine-select:checked ~ .vine-line {
+  width: 100%;
+}
+.menu-line,
+.vine-line {
+  content: '';
+  width: 0%;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  transition: 0.4s;
+  -o-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -webkit-transition: 0.4s;
+  z-index: -98;
+}
+.menu-line {
+  border-bottom: 2px solid #535332;
+}
+.vine-line {
+  border-bottom: 2px solid #eaeaea;
+}
+/*------ анимация кнопок менб и винного листа ------*/
+@-webkit-keyframes mouseover {
+  0% {
+    top: -555px;
+  }
+  100% {
+    top: -225px;
+  }
+}
+@-webkit-keyframes mouseout {
+  0% {
+    top: -225px;
+  }
+  100% {
+    top: 100px;
+  }
+}
+@keyframes mouseover {
+  0% {
+    top: -555px;
+  }
+  100% {
+    top: -225px;
+  }
+}
+@keyframes mouseout {
+  0% {
+    top: -225px;
+  }
+  100% {
+    top: 100px;
+  }
+}
+/*------ маленькие треугольники снизу кнопкок ------*/
+.menu-mask,
+.vine-mask {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -80px;
+  position: relative;
+  z-index: -97;
+}
+.menu-mask {
+  background-color: #eaeaea;
+}
+.vine-mask {
+  background-color: #2d1305;
+}
+.menu-mask::after,
+.vine-mask::after {
+  content: '';
+  position: relative;
+  border-right: 13px solid transparent;
+  border-left: 13px solid transparent;
+}
+.menu-mask::after {
+  border-top: 15px solid #535332;
+}
+.vine-mask::after {
+  border-top: 15px solid #eaeaea;
+}
+/*------ Контейнеры списков с ячейками  -------*/
+.menu-block > ul,
+.vine-block > ul {
+  height: 0px;
+  margin-top: 25px;
+  overflow: hidden;
+  visibility: hidden;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+}
+/*------ Высота блока меню с ячейкой 110px -------*/
+.menu-block > ul > li {
+  height: 110px;
+}
+/*------ Высота блока винной карты с ячейкой 140px -------*/
+.vine-block > ul > li {
+  height: 140px;
+}
+/*------ Блоки категорий ------*/
+.alkuruoat,
+.salaatit,
+.pastat,
+.pizzat,
+.keitot,
+.lihajakala,
+.jalkiruoat,
+.punaviinit,
+.valkoviitit,
+.roseviinit,
+.kouhuviinit {
+  position: relative;
+  top: -50px;
+  opacity: 0;
+  transition: 1.5s;
+  -webkit-transition: 1.5s;
+  -moz-transition: 1.5s;
+  -o-transition: 1.5s;
+  z-index: -2;
+}
+.menu-select:checked ~ .alkuruoat,
+.menu-select:checked ~ .salaatit,
+.menu-select:checked ~ .pastat,
+.menu-select:checked ~ .pizzat,
+.menu-select:checked ~ .keitot,
+.menu-select:checked ~ .lihajakala,
+.menu-select:checked ~ .jalkiruoat,
+.vine-select:checked ~ .punaviinit,
+.vine-select:checked ~ .valkoviitit,
+.vine-select:checked ~ .roseviinit,
+.vine-select:checked ~ .kouhuviinit {
+  height: auto;
+  top: 0px;
+  visibility: visible;
+  opacity: 1;
+}
+/*------- Собержание меню и винного блока -------------*/
+.menu-title,
+.vine-title {
+  float: left;
+  position: relative;
+  font-size: 25px;
+}
+.vine-title {
+  color: #eaeaea;
+}
+.menu-hinta,
+.vine-hinta {
+  float: left;
+  position: relative;
+  font-size: 25px;
+}
+.vine-hinta {
+  color: #eaeaea;
+}
+/* cl */
+.vine-cl::after,
+.vine-cl75::after {
+  width: 100%;
+  display: block;
+  position: relative;
+  float: right;
+  color: #eaeaea;
+  word-spacing: inherit;
+}
+.vine-cl::after {
+  content: '12cl/16cl/75cl';
+}
+.vine-cl75::after {
+  content: '75cl';
+}
+/*---------*/
+.menu-text,
+.vine-text {
+  margin-top: 10px;
+  position: relative;
+  float: left;
+}
+.vine-text {
+  color: #eaeaea;
+}
+/*------ YHTEYSTIEDOT ------*/
+.yhteys-list {
+  font-family: 'Sansation_Light';
+  width: 100%;
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  float: left;
+  background-color: #514f17;
+}
+.all-btn {
+  width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.yhteys-btn {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  position: relative;
+  float: left;
+  opacity: 1;
+  border: 2px solid #eaeaea;
+  border-radius: 50%;
+  background-color: #514f17;
+  cursor: pointer;
+  transition: 0.5s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.adress,
+.phone,
+.email,
+.facebook {
+  width: 60px;
+  height: 60px;
+  margin-left: 9px;
+  margin-top: 10px;
+  position: relative;
+  background-image: url(../image/icons.png);
+}
+.adress {
+  background-position: -60px -60px;
+}
+.phone {
+  background-position: 0px -60px;
+}
+.email {
+  background-position: -120px -60px;
+}
+.facebook {
+  background-position: -180px -60px;
+}
+/*------ кнопки медия ------*/
+.yhteys-btn:hover {
+  opacity: 0.3;
+  border-color: #514f17;
+  background-color: #eaeaea;
+}
+.yhteys-btn:hover .adress {
+  background-position: -60px 0px;
+}
+.yhteys-btn:hover .phone {
+  background-position: 0px 0px;
+}
+.yhteys-btn:hover .email {
+  background-position: -120px 0px;
+}
+.yhteys-btn:hover .facebook {
+  background-position: -180px 0px;
+}
+.before-footer {
+  padding-bottom: 50px;
+}
+.footer h1 {
+  font-size: 20px;
+}
+@media (max-width: 480px) {
+  /*----- AUKIOLOAJAT -----*/
+  .one-box {
+    background-image: url(../image/box-one-bg-mob.jpg);
+  }
+  .two-box {
+    background-image: url(../image/box-two-bg-mob.jpg);
+  }
+  .four-box {
+    background-image: url(../image/box-four-bg-mob.jpg);
+  }
+  .topic-white {
+    font-size: 45px;
+  }
+  .day {
+    font-size: 20px;
+  }
+  .varaus-txt {
+    font-size: 20px;
+    margin-top: -140px;
+  }
+  .topic-olive {
+    font-size: 70px;
+  }
+  .topic-yhteys {
+    font-size: 40px;
+  }
+  .top-sing {
+    margin-top: 0px;
+    font-size: 30px;
+  }
+  .lounas-day {
+    font-size: 25px;
+  }
+  /*------ input элемент кнопки ------*/
+  .menu-select,
+  .vine-select {
+    width: 200px;
+    height: 60px;
+  }
+  /*------ видимая часть кнопок ------*/
+  .menu-name,
+  .vine-name {
+    width: 200px;
+    height: 60px;
+    margin-top: -60px;
+    padding-top: 14px;
+    font-size: 25px;
+  }
+  .menu-name::after,
+  .vine-name::after {
+    width: 410px;
+    height: 410px;
+    margin-left: 20px;
+  }
+  /*------ маленькие треугольники снизу кнопкок ------*/
+  .menu-mask,
+  .vine-mask {
+    width: 220px;
+    height: 60px;
+    margin-top: -60px;
+  }
+  .menu-mask::after,
+  .vine-mask::after {
+    top: 73px;
+  }
+  .all-btn {
+    width: 248px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .yhteys-btn {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  /*------ input элемент кнопки ------*/
+  .menu-select,
+  .vine-select {
+    width: 280px;
+    height: 60px;
+  }
+  /*------ видимая часть кнопок ------*/
+  .menu-name,
+  .vine-name {
+    width: 280px;
+    height: 60px;
+    margin-top: -60px;
+    padding-top: 14px;
+    font-size: 25px;
+  }
+  .menu-name::after,
+  .vine-name::after {
+    width: 320px;
+    height: 320px;
+    margin-left: -20px;
+  }
+  /*------ маленькие треугольники снизу кнопкок ------*/
+  .menu-mask,
+  .vine-mask {
+    width: 300px;
+    height: 60px;
+    margin-top: -60px;
+  }
+  .menu-mask::after,
+  .vine-mask::after {
+    top: 73px;
+  }
+  /*------ блок меню с ячейкой 120px -------*/
+  .menu-block > ul > li {
+    height: 120px;
+  }
+  /*------ блок винной карты с ячейкой 140px -------*/
+  .vine-block > ul > li {
+    height: 140px;
+  }
+  .topic-yhteys {
+    font-size: 55px;
+  }
+}
+@media (min-width: 481px) {
+  .topic-white,
+  .topic-olive,
+  .topic-yhteys {
+    font-size: 50px;
+  }
+  .day {
+    font-size: 25px;
+  }
+}
+@media (max-width: 768px) {
+  /*----- IL TRIO picture -----*/
+  .one-box {
+    height: 600px;
+  }
+  /*------ LOUNAS ------*/
+  .lounas-list > h1 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .lounas-title,
+  .lounas-hinta,
+  .lounas-product {
+    width: 100%;
+    text-align: center;
+  }
+  .lounas-hinta {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  /*------- Собержание меню и винного блока -------------*/
+  .menu-title,
+  .vine-title {
+    width: 100%;
+    margin-top: 0px;
+    text-align: center;
+  }
+  .menu-hinta,
+  .vine-hinta {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .vine-hinta {
+    margin-top: 20px;
+  }
+  .menu-text,
+  .vine-text {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  .vine-cl::after,
+  .vine-cl75::after {
+    margin-top: -45px;
+    font-size: 13px;
+    text-align: center;
+  }
+  .vine-mob-point,
+  .menu-mob-point {
+    width: 100%;
+    position: relative;
+    float: left;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .menu-mob-point {
+    color: #535332;
+  }
+  .vine-mob-point {
+    color: #eaeaea;
+  }
+  .vine-end,
+  .menu-end {
+    display: none;
+  }
+  .menu-line,
+  .vine-line {
+    top: -30px;
+  }
+}
+@media (min-width: 769px) and (max-width: 959px) {
+  /*----- IL TRIO picture -----*/
+  .one-box {
+    height: 700px;
+  }
+}
+@media (min-width: 769px) {
+  /*------ input элемент кнопки ------*/
+  .menu-select,
+  .vine-select {
+    width: 300px;
+    height: 60px;
+  }
+  /*------ видимая часть кнопки ------*/
+  .menu-name,
+  .vine-name {
+    width: 300px;
+    height: 60px;
+    margin-top: -60px;
+    padding-top: 10px;
+  }
+  .menu-name::after,
+  .vine-name::after {
+    width: 410px;
+    height: 410px;
+    margin-left: 43px;
+  }
+  /*------ маленькие треугольники снизу кнопкок ------*/
+  .menu-mask,
+  .vine-mask {
+    width: 350px;
+    height: 60px;
+    margin-top: -60px;
+  }
+  .menu-mask::after,
+  .vine-mask::after {
+    top: 73px;
+  }
+  /*------- Собержание меню и винного блока -------------*/
+  .menu-title,
+  .vine-title {
+    margin-top: 25px;
+    text-align: left;
+  }
+  .menu-title {
+    width: 80%;
+    border-bottom: 1px solid #535332;
+  }
+  .vine-title {
+    width: 65%;
+    border-bottom: 1px solid #eaeaea;
+  }
+  .menu-hinta,
+  .vine-hinta {
+    margin-top: 25px;
+    text-align: right;
+  }
+  .menu-hinta {
+    width: 20%;
+    border-bottom: 1px solid #535332;
+  }
+  .vine-hinta {
+    width: 34%;
+    border-bottom: 1px solid #eaeaea;
+  }
+  .vine-cl::after,
+  .vine-cl75::after {
+    margin-top: -50px;
+    left: -3px;
+    font-size: 20px;
+    text-align: right;
+  }
+  .menu-text,
+  .vine-text {
+    margin-top: 10px;
+    text-align: left;
+  }
+  .menu-text {
+    width: 80%;
+  }
+  .vine-text {
+    width: 85%;
+  }
+  .vine-mob-point,
+  .menu-mob-point {
+    display: none;
+  }
+  .vine-end,
+  .menu-end {
+    width: 100%;
+    position: relative;
+    float: left;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .menu-end {
+    color: #535332;
+  }
+  .vine-end {
+    color: #eaeaea;
+  }
+  .menu-line,
+  .vine-line {
+    top: -30px;
+  }
+}
+
+@media (max-width: 959px) {
+  .logo {
+    width: 100%;
+    background-size: 95% auto;
+  }
+  /*----- AUKIOLOAJAT -----*/
+  .aika-list {
+    width: 96%;
+  }
+  /*----- LOUNAS -----*/
+  .lounas-list li {
+    border-bottom: thin solid #eaeaea;
+    margin-bottom: 10px;
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .shadow-box {
+    width: 90%;
+  }
+  .ajat-box,
+  .lounas-box,
+  .yhteys-box {
+    width: 100%;
+    height: 100%;
+    margin: 15% auto 15% auto;
+  }
+}
+@media (min-width: 960px) and (max-width: 1199px) {
+  /*----- IL TRIO picture -----*/
+  .one-box {
+    height: 800px;
+  }
+}
+@media (min-width: 960px) {
+  .logo {
+    width: 815px;
+    height: 468px;
+    margin: auto;
+  }
+  .ajat-box,
+  .lounas-box,
+  .yhteys-box {
+    width: 850px;
+    height: 100%;
+    margin: 5% auto 5% auto;
+    display: block;
+  }
+}
+@media (max-width: 1199px) {
+  .slider-box {
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+  .vine-box,
+  .menu-box {
+    width: 96%;
+    height: 100%;
+    display: block;
+    position: relative;
+    z-index: -99;
+  }
+  .menu-box {
+    margin: 50px auto 80px auto;
+  }
+  .vine-box {
+    margin: 50px auto 60px auto;
+  }
+  .menu-select:hover ~ .menu-line,
+  .vine-select:hover ~ .vine-line {
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  /*----- IL TRIO picture -----*/
+  .one-box {
+    height: 100vh;
+  }
+  .slider-box {
+    width: 1200px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+  .menu-box,
+  .vine-box {
+    width: 1110px;
+    height: 100%;
+    display: block;
+    position: relative;
+    z-index: -99;
+  }
+  .menu-box {
+    margin: 50px auto 80px auto;
+  }
+  .vine-box {
+    margin: 50px auto 60px auto;
+  }
+  .menu-select:hover ~ .menu-line,
+  .vine-select:hover ~ .vine-line {
+    width: 40%;
+  }
+}
